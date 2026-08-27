@@ -20,7 +20,9 @@ Do not use an exemption only because strict STE is difficult.
 
 ## Technical text
 
-Use `ste-strict` for architecture documents, ADRs, build procedures, release procedures, security documents, README files, API documents, developer help, release notes, code comments, issue templates, pull-request templates, and agent instructions.
+Use `ste-strict` for architecture documents, ADRs, build procedures, release procedures, and security documents.
+Use `ste-strict` for README files, API documents, developer help, release notes, and code comments.
+Use `ste-strict` for issue templates, pull-request templates, and agent instructions.
 
 Use American English spelling unless an official directive requires a different spelling.
 Use approved words only with their approved meanings and approved parts of speech.

@@ -11,7 +11,7 @@ function Write-Result {
     param([string]$Name, [bool]$Ok, [string]$Detail)
     $state = if ($Ok) { "PASS" } else { "FAIL" }
     Write-Host ("{0,-6} {1}: {2}" -f $state, $Name, $Detail)
-    if (-not $Ok) { $script:failures.Add("$Name: $Detail") }
+    if (-not $Ok) { $script:failures.Add(("{0}: {1}" -f $Name, $Detail)) }
 }
 
 $isWindows = $env:OS -eq "Windows_NT"
