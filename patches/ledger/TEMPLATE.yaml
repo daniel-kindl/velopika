@@ -1,0 +1,11 @@
+schema: 1
+patch_id: ""
+subsystem: ""
+purpose: ""
+chromium_touchpoints: []
+velopika_touchpoints: []
+security_impact: ""
+test_coverage: []
+upstream_status: ""
+removal_condition: ""
+chromium_revision: ""

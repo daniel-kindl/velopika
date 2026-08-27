@@ -1,0 +1,7 @@
+{
+  "schema": 1,
+  "exceptions": [
+    {"path":"LICENSE","class":"ste-exempt","reason":"This file contains the exact Apache License 2.0 legal text."},
+    {"path":"chromium.version","class":"ste-exempt","reason":"This file contains machine-readable identifiers and external source URLs."}
+  ]
+}

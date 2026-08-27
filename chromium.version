@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "channel": "stable",
+  "milestone": 152,
+  "version": "152.0.7977.55",
+  "revision": "5659715958734a5ca90fda5d3c5249daf2b28c3d",
+  "selected_at": "2026-08-27",
+  "platform": "Windows",
+  "architecture": "x64",
+  "sources": [
+    {
+      "purpose": "stable_channel",
+      "url": "https://chromereleases.googleblog.com/2026/08/early-stable-update-for-desktop_02031437787.html"
+    },
+    {
+      "purpose": "source_revision",
+      "url": "https://chromium.googlesource.com/chromium/src/+/refs/tags/152.0.7977.55"
+    }
+  ]
+}

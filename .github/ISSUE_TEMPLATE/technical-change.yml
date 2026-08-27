@@ -1,0 +1,82 @@
+name: Technical change
+description: Define one bounded Velopika engineering change.
+title: ""
+labels: []
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Describe the user problem or engineering problem.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and non-goals
+      description: State what the change includes and excludes.
+    validations:
+      required: true
+  - type: input
+    id: subsystem
+    attributes:
+      label: Changed subsystem
+      description: Name the Chromium or Velopika subsystem.
+    validations:
+      required: true
+  - type: textarea
+    id: state
+    attributes:
+      label: State and data
+      description: Describe state that the change creates, stores, migrates, clears, or exports.
+  - type: textarea
+    id: trust
+    attributes:
+      label: Trust boundary
+      description: Describe processes, origins, privileges, IPC, or secrets that the change touches.
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: State the required result and the result that must not occur.
+    validations:
+      required: true
+  - type: textarea
+    id: tests
+    attributes:
+      label: Tests
+      description: State the tests that will show the result.
+    validations:
+      required: true
+  - type: textarea
+    id: rollout
+    attributes:
+      label: Rollout and rollback
+      description: State the flag, channel, migration, and rollback plan when applicable.
+  - type: input
+    id: ledger
+    attributes:
+      label: Patch ledger
+      description: Give the patch ID or state that no Chromium integration point changes.
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language class
+      description: Select the class for changed project-owned English text.
+      options:
+        - ste-strict
+        - ste-humanized
+        - ste-exempt
+    validations:
+      required: true
+  - type: dropdown
+    id: security
+    attributes:
+      label: Security sensitivity
+      options:
+        - L0 - Mechanical
+        - L1 - Product code
+        - L2 - Browser behavior
+        - L3 - Security or release
+    validations:
+      required: true
