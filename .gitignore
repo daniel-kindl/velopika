@@ -1,0 +1,23 @@
+# Chromium source and output are external to this repository.
+chromium/
+src/
+out/
+
+# Local Velopika data.
+.velopika-local/
+velopika-data/
+
+# Python.
+__pycache__/
+*.py[cod]
+.venv/
+
+# Editors and operating systems.
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local reports.
+ste-report.json
+quality-report.json

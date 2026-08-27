@@ -1,0 +1,55 @@
+name: Bootstrap checks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - dev
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  repository:
+    name: repository
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile Python tools
+        run: python -m compileall -q tools
+      - name: Check repository
+        run: python tools/quality/check_repo.py
+      - name: Check Markdown
+        run: python tools/quality/check_markdown.py
+      - name: Check STE rules
+        run: python tools/ste/lint.py
+      - name: Parse YAML files
+        run: |
+          ruby -e 'require "yaml"; Dir.glob("**/*.{yml,yaml}", File::FNM_DOTMATCH).each { |f| next if f.start_with?(".git/"); YAML.load_file(f); puts "YAML #{f}" }'
+      - name: Check pull-request title
+        if: github.event_name == 'pull_request'
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: python tools/quality/check_pr_title.py
+
+  powershell:
+    name: powershell
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Parse PowerShell tools
+        shell: pwsh
+        run: |
+          $errors = @()
+          Get-ChildItem tools -Filter *.ps1 -Recurse | ForEach-Object {
+            $tokens = $null
+            $parseErrors = $null
+            [System.Management.Automation.Language.Parser]::ParseFile($_.FullName, [ref]$tokens, [ref]$parseErrors) | Out-Null
+            if ($parseErrors.Count -gt 0) { $errors += $parseErrors }
+          }
+          if ($errors.Count -gt 0) {
+            $errors | Format-List | Out-String | Write-Error
+            exit 1
+          }
+          Write-Host "PowerShell: PASS"
